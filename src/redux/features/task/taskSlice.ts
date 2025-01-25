@@ -9,22 +9,34 @@ interface InitialState {
 const initialState: InitialState = {
   tasks: [
     {
-      id: "ahhbs",
-      title: "Initial fronted",
-      description: "hgyudguywuwqhgdu",
-      dueDate: "2025-11",
+      id: "1",
+      title: "Set up project repository",
+      description:
+        "Initialize the Git repository, add .gitignore, and configure branches for development and production.",
+      dueDate: "2025-11-10",
       isComplete: false,
       priority: "High",
     },
     {
-      id: "ahhbs",
-      title: "Initial fronted",
-      description: "hgyudguywuwqhgdu",
-      dueDate: "2025-11",
+      id: "2",
+      title: "Create reusable UI components",
+      description:
+        "Develop reusable components like buttons, modals, and input fields with Tailwind CSS for the project.",
+      dueDate: "2025-11-15",
       isComplete: false,
-      priority: "High",
+      priority: "Medium",
+    },
+    {
+      id: "3",
+      title: "Implement user authentication",
+      description:
+        "Set up user login, registration, and JWT-based authentication for secure access to the app.",
+      dueDate: "2025-11-20",
+      isComplete: false,
+      priority: "Low",
     },
   ],
+
   filter: "all",
 };
 const taskSlice = createSlice({
