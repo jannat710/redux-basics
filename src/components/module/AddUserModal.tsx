@@ -13,15 +13,15 @@ import { Form, FormControl, FormField, FormItem, FormLabel } from "../ui/form";
 import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { Input } from "../ui/input";
 import { useAppDispatch } from "@/redux/hook";
-import { addTask } from "@/redux/features/task/taskSlice";
-import { ITask } from "@/types";
+import { IUser } from "@/types";
+import { addUser } from "@/redux/features/user/userSlice";
 
 export function AddUserModal() {
   const form = useForm();
 
   const dispatch = useAppDispatch();
   const onSubmit: SubmitHandler<FieldValues> = (data) => {
-    dispatch(addTask(data as ITask));
+    dispatch(addUser(data as IUser));
   };
   return (
     <Dialog>
@@ -39,7 +39,7 @@ export function AddUserModal() {
           <form className="space-y-3" onSubmit={form.handleSubmit(onSubmit)}>
             <FormField
               control={form.control}
-              name="title"
+              name="name"
               render={({ field }) => (
                 <FormItem>
                   <FormLabel>User Name</FormLabel>

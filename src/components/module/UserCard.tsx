@@ -5,10 +5,11 @@ interface IProps {
 import { Trash2 } from "lucide-react";
 import { Button } from "../ui/button";
 import { IUser } from "@/types";
+import { useAppDispatch } from "@/redux/hook";
+import { removeUser } from "@/redux/features/user/userSlice";
 
-// }
 const UserCard = ({ user }: IProps) => {
-  //   const dispatch = useAppDispatch();
+  const dispatch = useAppDispatch();
   return (
     <div className="border px-5 py-3 rounded-md">
       <div className="flex justify-between items-center">
@@ -16,7 +17,11 @@ const UserCard = ({ user }: IProps) => {
           <h1>{user.name}</h1>
         </div>
         <div className="flex gap-3 items-center">
-          <Button variant="link" className="p-0 text-red-500">
+          <Button
+            onClick={() => dispatch(removeUser(user.id))}
+            variant="link"
+            className="p-0 text-red-500"
+          >
             <Trash2 />
           </Button>
         </div>
