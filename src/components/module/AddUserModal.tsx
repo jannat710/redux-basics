@@ -16,7 +16,7 @@ import { useAppDispatch } from "@/redux/hook";
 import { addTask } from "@/redux/features/task/taskSlice";
 import { ITask } from "@/types";
 
-export function AddTaskModal() {
+export function AddUserModal() {
   const form = useForm();
 
   const dispatch = useAppDispatch();
