@@ -16,6 +16,7 @@ const initialState: InitialState = {
         "Initialize the Git repository, add .gitignore, and configure branches for development and production.",
       priority: "high",
       dueDate: "2025-11-10",
+      assignedTo: null,
     },
     {
       id: "IIhI-rWvH2ONv7CQMhdnR",
@@ -25,6 +26,7 @@ const initialState: InitialState = {
         "Develop reusable components like buttons, modals, and input fields with Tailwind CSS for the project.",
       priority: "medium",
       dueDate: "2025-11-15",
+      assignedTo: null,
     },
     {
       id: "IIhI-rWvH2ONv7CQMhdnS",
@@ -34,15 +36,24 @@ const initialState: InitialState = {
         "Set up user login, registration, and JWT-based authentication for secure access to the app.",
       priority: "low",
       dueDate: "2025-11-20",
+      assignedTo: null,
     },
   ],
 
   filter: "all",
 };
 
-type DraftTask = Pick<ITask, "title" | "description" | "dueDate" | "priority">;
+type DraftTask = Pick<
+  ITask,
+  "title" | "description" | "dueDate" | "priority" | "assignedTo"
+>;
 const createTask = (taskData: DraftTask): ITask => {
-  return { id: nanoid(), isCompleted: false, ...taskData };
+  return {
+    ...taskData,
+    id: nanoid(),
+    isCompleted: false,
+    assignedTo: taskData.assignedTo ? taskData.assignedTo : null,
+  };
 };
 
 const taskSlice = createSlice({
